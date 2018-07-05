@@ -6,13 +6,16 @@
 
 # c++入门
 
-* 1.[Input and Output](001input.cc)
+* 001.[Input and Output](001input.cc)
+* 002.[Array and Vector](002average-and-sum.cc)
+* 003.[File IO](003string-sort.cc)
 
 # leetcode
 
 
 * 1.[Two Sum](two-sum.cc)
 * 2.[Add Two Numbers](add-two-numbers.cc)
+* 3.[Longest Substring Without Repeating Characters](longest-substring.cc)
 
 
 
