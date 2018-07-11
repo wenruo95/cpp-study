@@ -4,13 +4,20 @@
 
 > 目的:学习C++、STL
 
-# c++入门
+# 1.c++入门
 
+* 000.[Test检测gcc版本](test.cc)
 * 001.[Input and Output](001input.cc)
 * 002.[Array and Vector](002average-and-sum.cc)
 * 003.[File IO](003string-sort.cc)
 
-# leetcode
+# 2.stl学习
+
+* 001.[STL基础使用](stl.cc)
+* 002.[泛型指针](iterator.cc)
+
+
+# 3.leetcode
 
 
 * 1.[Two Sum](two-sum.cc)
@@ -19,7 +26,7 @@
 
 
 
-## FAQ
+## 99.FAQ
 
 编译
 ```

@@ -156,8 +156,7 @@ void stl_map() {
 	for (map<string,int>::iterator it = m.begin(); it != m.end(); it++) {
 		std::cout << it->first << "\t" << it->second << std::endl;
 	}
-	std::cout << m.contains("test") << std::endl;
-	if (m.contains("test")) {
+	if (m.find("test") != m.end()) {
 		std::cout << "not exist" << std::endl;
 	} else {
 		std::cout << "exist" << std::endl;
