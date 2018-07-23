@@ -1,9 +1,4 @@
 
-> 目标:预备完成leetcode所有题目
-
-
-> 目的:学习C++、STL
-
 # 1.c++入门
 
 * 000.[Test检测gcc版本](abc/test.cc)
@@ -35,10 +30,15 @@
 # 5.[面试](interview)
 
 
-## 99.FAQ
+# 99.FAQ
 
 编译
 ```
 g++ stl.cc -std=c++11 -o stl.o
 ```
 
+
+# 100.about
+
+	author: linkzw
+	email:	linkzw@qq.com
