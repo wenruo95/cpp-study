@@ -10,13 +10,16 @@
 * 001.[Input and Output](001input.cc)
 * 002.[Array and Vector](002average-and-sum.cc)
 * 003.[File IO](003string-sort.cc)
+* 004.[Align && sizeof](align.cc)
+* 005.[解除引用](memb_pt.cc)
 
 # 2.stl学习
 
 * 001.[STL基础使用](stl.cc)
 * 002.[泛型指针](iterator.cc)
 * 003.[template](template.cc)
-
+* 004.[stl小实践](demo.cc)
+* 005.[字符串相互转换](trans.cc)
 
 # 3.leetcode
 
