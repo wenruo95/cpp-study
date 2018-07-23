@@ -19,6 +19,14 @@ void stl_vector();
 void stl_set();
 void stl_list();
 void stl_map();
+// stack
+// stack.size
+// stack.push && stack.pop && stack.top
+
+// queue
+// queue.size() && queue.empty()
+// queue.push && queue.pop
+// queue.front && queue.back
 
 int main(void) {
 	std::cout << "Helloworld!!!" << std::endl;
