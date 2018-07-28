@@ -17,6 +17,7 @@ void create_graph();
 void add_edges(char begin,char end);
 void print_all();
 void deep_graph();
+void width_graph();
 void visit_operate(char vch);
 
 // 有向图表示
@@ -32,7 +33,10 @@ static Graph *graph = new Graph();
 int main(void) {
 	auto_create_graph();
 	print_all();
+	std::cout << "\n深度优先:" << std::endl;
 	deep_graph();
+	std::cout << "\n广度优先:" << std::endl;
+	width_graph();
 }
 
 // 手动输入数据
@@ -70,6 +74,29 @@ void add_edges(char begin,char end) {
 }
 
 void deep_graph() {
+	map<char,set<char>> m_set = graph->vexs;
+	map<char,set<char>>::iterator first_vex = m_set.begin();
+	stack<char> vex_s;
+	set<char> visited;
+	vex_s.push(first_vex->first);
+	while (!vex_s.empty()) {
+		char vch = vex_s.top();
+		if (visited.find(vch) != visited.end()) {
+			vex_s.pop();
+			continue;
+		}
+		visited.insert(vch);
+		visit_operate(vch);
+		vex_s.pop();
+		// insert in queue
+		set<char> s = graph->vexs[vch];
+		for (set<char>::const_iterator it = s.begin(); it != s.end(); it++) {
+			vex_s.push(*it);
+		}
+	}
+}
+
+void width_graph() {
 	map<char,set<char>> m_set = graph->vexs;
 	map<char,set<char>>::iterator first_vex = m_set.begin();
 	queue<char> vex_q;
