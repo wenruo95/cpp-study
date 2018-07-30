@@ -12,6 +12,10 @@ vector<string> split(const string str,const char seperator) {
 int main(void) {
 	string str("abc bbc acb");
 
+	std::cout << str << ".size:\t" << str.size() << std::endl;
+	std::cout << std::string(&str[0],&str[3]) << std::endl;
+	std::cout << std::string(&str[3],&str[str.size()]) + '\0' << std::endl;
+
 	vector<vector<string>> output1;
 	vector<string> output2;
 
