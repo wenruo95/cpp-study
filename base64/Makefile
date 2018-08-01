@@ -5,4 +5,4 @@ all:
 	g++ base64.cc
 
 c:
-	gcc base64.c -std=c99
+	gcc base64.c -std=c99 -lm
