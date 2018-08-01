@@ -7,8 +7,9 @@ static unsigned char init_char[64] = {
 	'0','1','2','3','4','5','6','7','8','9','+','/',
 };
 
-static unsigned int left_char[4] = {0,3,0,15};
-static unsigned int right_char[4] = {0,240,0,192};
+// 加密过程中剩余字节数只能为2或者4
+static unsigned int encleft[4] = {0,3,0,15};
+static unsigned int encright[4] = {0,240,0,192};
 
 // 加密
 void encrypt_base64(char org[], int len, char result[]);
@@ -24,6 +25,9 @@ int main() {
 	char result[num + 1];
 	encrypt_base64(org,len,result);
 	printf("org:%s\tlen:%d\tencrypt:%s\n",org,num,result);
+	char dec[len];
+	decrypt_base64(result,num,dec);
+	printf("org:%s\tlen:%d\tdecrypt:%s\n",result,len,dec);
 	return 0;
 }
 
@@ -34,8 +38,8 @@ void encrypt_base64(char org[],int len,char result[]) {
 		if (leave_num == 0) {
 			chindex = org[i] >> 2;
 		} else {
-			left = (org[i - 1] & left_char[leave_num - 1]) << (6 - leave_num);
-			right = (org[i] & right_char[leave_num - 1]) >> (8 - (6 - leave_num));
+			left = (org[i - 1] & encleft[leave_num - 1]) << (6 - leave_num);
+			right = (org[i] & encright[leave_num - 1]) >> (8 - (6 - leave_num));
 			//printf("left:%d\tright:%d\tleave_num:%d\n",left,right,leave_num,org[i]);
 			chindex = left | right;
 		}
@@ -47,7 +51,7 @@ void encrypt_base64(char org[],int len,char result[]) {
 		leave_num = (8 * (i + 1)) % 6;
 	}
 	if (len % 3 != 0) {
-		chindex = (org[len - 1] & left_char[leave_num - 1]) << (6 - leave_num);
+		chindex = (org[len - 1] & encleft[leave_num - 1]) << (6 - leave_num);
 		result[count++] = init_char[chindex];
 		if (len % 3 == 1) {
 			result[count++] = '=';
@@ -60,5 +64,36 @@ void encrypt_base64(char org[],int len,char result[]) {
 
 
 void decrypt_base64(char org[], int len, char result[]) {
-
+	unsigned char ch[4];
+	unsigned int additional = 2, count = 0, chindex;
+	for (int i = 0; i + 3 < len; i += 4) {
+		for (int j = 0; j < 4; j++) {
+			if (org[i + j] >= 'A' && org[i + j] <= 'Z') {
+				ch[j] = org[i + j] - 'A';
+			} else if (org[i + j] >= 'a' && org[i + j] <= 'z') {
+				ch[j] = org[i + j] - 'a' + 26;
+			} else if (org[i + j] >= '0' && org[i + j] <= '9') {
+				ch[j] = org[i + j] - '0' + 52;
+			} else if (org[i + j] == '+') {
+				ch[j] = 62;
+			} else if (org[i + j] == '/') {
+				ch[j] = 63;
+			} else {
+				ch[j] = 0;
+			}
+		}
+		result[count++] = (ch[0] << 2) | (ch[1] >> 4);
+		if (org[i + 2] == '=') {
+			break;
+		} else {
+			result[count++] = (ch[1] << 4) | (ch[2] >> 2);
+			if (org[i + 3] == '=') {
+				break;
+			} else {
+				result[count++] = (ch[2] << 6) | ch[3];
+			}
+		}
+	}
+	result[count++] = '\n';
 }
+
