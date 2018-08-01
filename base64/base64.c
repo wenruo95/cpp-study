@@ -17,7 +17,7 @@ void encrypt_base64(char org[], int len, char result[]);
 void decrypt_base64(char org[], int len, char result[]);
 
 int main() {
-	char org[] = "Man"; //MTM1ODEyNDY4NA==
+	char org[] = "1358124684"; //MTM1ODEyNDY4NA==
 	int len;
 	for (len = 0; org[len] != '\0'; len++);
 	int num = (ceil(len / 3.0)) * 4;
@@ -36,7 +36,7 @@ void encrypt_base64(char org[],int len,char result[]) {
 		} else {
 			left = (org[i - 1] & left_char[leave_num - 1]) << (6 - leave_num);
 			right = (org[i] & right_char[leave_num - 1]) >> (8 - (6 - leave_num));
-			printf("left:%d\tright:%d\tleave_num:%d,sd=%d\n",left,right,leave_num,org[i] & 48);
+			//printf("left:%d\tright:%d\tleave_num:%d\n",left,right,leave_num,org[i]);
 			chindex = left | right;
 		}
 		result[count++] = init_char[chindex];
@@ -47,14 +47,14 @@ void encrypt_base64(char org[],int len,char result[]) {
 		leave_num = (8 * (i + 1)) % 6;
 	}
 	if (len % 3 != 0) {
-		chindex = org[len - 1] << (8 - leave_num);
-		result[count++] = init_char[(int)chindex];
+		chindex = (org[len - 1] & left_char[leave_num - 1]) << (6 - leave_num);
+		result[count++] = init_char[chindex];
 		if (len % 3 == 1) {
 			result[count++] = '=';
 		}
 		result[count++] = '=';
 	}
-	printf("count:%d\n",count);
+	//printf("count:%d\n",count);
 	result[count++] = '\0';
 }
 
