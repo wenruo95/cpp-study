@@ -1,8 +1,11 @@
 linux:
-	g++ base64.cc
+	g++ index.cc
 
 all:
-	g++ base64.cc
+	g++ index.cc
 
 c:
 	gcc base64.c -std=c99 -lm
+
+clean:
+	rm -rf *.out *.o
