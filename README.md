@@ -7,6 +7,7 @@
 * 003.[File IO](abc/003string-sort.cc)
 * 004.[Align && sizeof](abc/align.cc)
 * 005.[解除引用](abc/memb_pt.cc)
+* 006.[copy构造函数](constructor-copy.cc)
 
 # 2.[stl学习](stl)
 
@@ -36,6 +37,8 @@
 # 7.[简单面向对象](oo)
 
 # 8.[Base64](base64)
+
+# 9.[C++参考书籍](books)
 
 
 # 99.FAQ
