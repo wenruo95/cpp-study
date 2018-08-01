@@ -18,8 +18,6 @@ void add_edges(char begin,char end);
 void print_all();
 void deep_graph();
 void width_graph();
-void print_all_road();
-void print_ab_road(char a,char b);
 void visit_operate(char vch);
 
 // 有向图表示
@@ -75,7 +73,6 @@ void add_edges(char begin,char end) {
 	graph->vexs[begin] = m_set;
 }
 
-// 深度优先
 void deep_graph() {
 	map<char,set<char>> m_set = graph->vexs;
 	map<char,set<char>>::iterator first_vex = m_set.begin();
@@ -99,7 +96,28 @@ void deep_graph() {
 	}
 }
 
-// 广度优先
+void find_allroad(char a,char b) {
+	stack<char> vex_s;
+	set<char> visited;
+	vex_s.push(a);
+	while (!vex_s.empty()) {
+		char vch = vex_s.top();
+		if (visited.find(vch) != visited.end()) {
+			vex_s.pop();
+			continue;
+		}
+		visited.insert(vch);
+		visit_operate(vch);
+		vex_s.pop();
+		// insert in queue
+		set<char> s = graph->vexs[vch];
+		for (set<char>::const_iterator it = s.begin(); it != s.end(); it++) {
+			vex_s.push(*it);
+		}
+	}
+
+}
+
 void width_graph() {
 	map<char,set<char>> m_set = graph->vexs;
 	map<char,set<char>>::iterator first_vex = m_set.begin();
@@ -123,23 +141,6 @@ void width_graph() {
 	}
 }
 
-void print_all_road() {
-	map<char,set<char>>::iterator first_vex = m_set.begin();
-	char a = first_vex->first;
-	char vexs[] = {'A','B','C','D','E','F','G'};
-	int num = sizeof(vexs) / sizeof(vexs[0]);
-	for (int i = 0; i < num; i++) {
-		print_ab_road(a,vexs[i]);
-	}
-
-}
-
-void print_ab_road(char a,char b) {
-	if (true) {
-	
-	}
-}
-
 void visit_operate(char ch) {
 	std::cout << "visited vex:\t" << ch << std::endl;
 }
@@ -155,3 +156,5 @@ void print_all() {
 	}
 	std::cout << "after print\n\n" << std::endl;
 }
+
+
