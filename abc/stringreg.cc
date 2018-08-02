@@ -8,9 +8,12 @@
 int main(void) {
 	std::vector<std::string> vec;
 	vec.push_back("abc");
-	vec.push_back("de");
-	vec.push_back("fgh");
-	vec.push_back("ijk");
+	vec.push_back("bc");
+	vec.push_back("dfgh");
+	vec.push_back("bcd");
+	vec.push_back("efg");
+	vec.push_back("acdf");
+	vec.push_back("ghi");
 
 	std::set<std::string> reg;
 	reg.insert("cd");
