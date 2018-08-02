@@ -7,7 +7,9 @@
 * 003.[File IO](abc/003string-sort.cc)
 * 004.[Align && sizeof](abc/align.cc)
 * 005.[解除引用](abc/memb_pt.cc)
-* 006.[copy构造函数](constructor-copy.cc)
+* 006.[copy构造函数](abc/constructor-copy.cc)
+* 007.[特定字符串切割字符串](abc/stringreg.cc)
+* 008.[验证码](abc/validate.cc)
 
 # 2.[stl学习](stl)
 
