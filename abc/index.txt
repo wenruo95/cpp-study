@@ -1,0 +1,28 @@
+#Language;
+	C;
+	C++;
+	Java;
+	Python;
+	Golang;
+	Js;
+	Lua;
+
+#Animal;
+	
+
+#Human;
+
+#Object;
+
+#Eletric;
+
+#Book;
+	
+
+#Company;
+
+	xiaomi;
+	huawei;
+	apple;
+	microsoft;
+	amazon;
