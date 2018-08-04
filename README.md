@@ -39,7 +39,9 @@
 
 # 7.[简单面向对象](oo)
 
-# 8.[Base64](base64)
+# 8.Base64
+
+	使用[C语言实现](https://github.com/wenruo95/algorithm/tree/master/base64)
 
 
 # 9.[C++参考书籍](books)
