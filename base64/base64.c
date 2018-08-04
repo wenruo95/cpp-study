@@ -1,35 +1,6 @@
 #include<stdio.h>
-#include<math.h>
 
-static unsigned char init_char[64] = {
-	'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-	'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-	'0','1','2','3','4','5','6','7','8','9','+','/',
-};
-
-// 加密过程中剩余字节数只能为2或者4
-static unsigned int encleft[4] = {0,3,0,15};
-static unsigned int encright[4] = {0,240,0,192};
-
-// 加密
-void encrypt_base64(char org[], int len, char result[]);
-
-// 解密
-void decrypt_base64(char org[], int len, char result[]);
-
-int main() {
-	char org[] = "1358124684"; //MTM1ODEyNDY4NA==
-	int len;
-	for (len = 0; org[len] != '\0'; len++);
-	int num = (ceil(len / 3.0)) * 4;
-	char result[num + 1];
-	encrypt_base64(org,len,result);
-	printf("org:%s\tlen:%d\tencrypt:%s\n",org,num,result);
-	char dec[len];
-	decrypt_base64(result,num,dec);
-	printf("org:%s\tlen:%d\tdecrypt:%s\n",result,len,dec);
-	return 0;
-}
+#include "base64.h"
 
 void encrypt_base64(char org[],int len,char result[]) {
 	unsigned int chindex,left,right;
@@ -83,15 +54,13 @@ void decrypt_base64(char org[], int len, char result[]) {
 			}
 		}
 		result[count++] = (ch[0] << 2) | (ch[1] >> 4);
-		if (org[i + 2] == '=') {
-			break;
-		} else {
+		if (org[i + 2] != '=') {
 			result[count++] = (ch[1] << 4) | (ch[2] >> 2);
-			if (org[i + 3] == '=') {
-				break;
-			} else {
+			if (org[i + 3] != '=') {
 				result[count++] = (ch[2] << 6) | ch[3];
 			}
+		} else {
+			result[count++] = ch[1] << 4;
 		}
 	}
 	result[count++] = '\n';
