@@ -2,6 +2,7 @@
 
 #include<string>
 #include<map>
+#include<vector>
 #include<set>
 
 int main() {
@@ -41,4 +42,17 @@ int main() {
 	for (std::set<int>::iterator it = (first->second).begin(); it != (first->second).end(); it++) {
 		std::cout << "\t" << *it << std::endl;
 	}
+
+	std::vector<int> vec;
+	vec.push_back(10);
+	vec.push_back(20);
+	vec.push_back(30);
+	vec.push_back(40);
+
+	unsigned int count = 0;
+	for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++) {
+		std::cout << "count1:" << *it << std::endl;
+		std::cout << "count2:" << vec[count++] << std::endl;
+	}
+
 }
