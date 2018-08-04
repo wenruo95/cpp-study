@@ -8,7 +8,8 @@
 * 004.[Align && sizeof](abc/align.cc)
 * 005.[解除引用](abc/memb_pt.cc)
 * 006.[copy构造函数](abc/constructor-copy.cc)
-* 007.[特定字符串切割字符串](abc/stringreg.cc)
+* 007.1.[特定字符串切割字符串](abc/stringreg.cc)
+* 007.2.[特定字符串切割字符串优化](abc/stringreg2.cc)
 * 008.[验证码](abc/validate.cc)
 
 # 2.[stl学习](stl)
@@ -39,6 +40,7 @@
 # 7.[简单面向对象](oo)
 
 # 8.[Base64](base64)
+
 
 # 9.[C++参考书籍](books)
 

@@ -44,7 +44,7 @@ int main(void) {
 	std::vector<std::string> results;
 	for (int i = 0; i < target.size(); i++) {
 		unsigned int tail = i;
-		while (tail - i < maxlength &&tail < target.size()) {
+		while (tail - i < maxlength && tail < target.size()) {
 			std::string temp(&target[i], &target[tail + 1]);
 			if (reg.find(temp) != reg.end()) {
 				results.push_back(temp);
