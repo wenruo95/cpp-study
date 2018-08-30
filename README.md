@@ -30,6 +30,7 @@
 * 5.[Longest Palidromic Substring](leetcode/longest-palindromic-substring.cc)
 * 6.[ZigZag Conversion](leetcode/zigzag-conversion.cc)
 * 7.[Reverse Integer](leetcode/reverse-integer.cc)
+* 8.[String to Integer](leetcode/atoi.cc)
 
 # 4.[图](graph)
 
