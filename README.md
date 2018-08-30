@@ -29,6 +29,7 @@
 * 4.[Median of Two Sorted Arrays](leetcode/median-of-two-sorted-arrays.cc)
 * 5.[Longest Palidromic Substring](leetcode/longest-palindromic-substring.cc)
 * 6.[ZigZag Conversion](leetcode/zigzag-conversion.cc)
+* 7.[Reverse Integer](leetcode/reverse-integer.cc)
 
 # 4.[图](graph)
 
