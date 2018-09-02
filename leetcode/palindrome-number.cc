@@ -5,23 +5,24 @@ public:
 	bool isPalindrome(int x) {
 		if (x < 0) {
 			return false;
+		} else if (x < 10) {
+			return true;
 		}
 		char ch[10];
 		unsigned int size = 0;
 		unsigned int num = x;
 		while (num > 0) {
-			ch[0] = '0' + num % 10;
+			ch[size] = '0' + num % 10;
 			num = num / 10;
 			size++;
 		}
-		unsigned int left = (size - 1) - (size / 2);
-		unsigned int right = size / 2;
-		std::cout << "test:" << left << "\t" << right << std::endl;
+		int left = (size - 1) - (size / 2);
+		int right = size / 2;
 		for (; left >= 0 && right < size && ch[left] == ch[right]; left--,right++);
-		if (left > 0) {
-			return false;
+		if (left < 0) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 };
 

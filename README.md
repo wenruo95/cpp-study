@@ -32,6 +32,7 @@
 * 7.[Reverse Integer](leetcode/reverse-integer.cc)
 * 8.[String to Integer](leetcode/atoi.cc)
 * 9.[Palindrome Number](leetcode/palindrome-number.cc)
+* 10.[Regular Expression Matching](leetcode/regular-expression.cc)
 
 # 4.[图](graph)
 

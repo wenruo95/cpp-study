@@ -8,6 +8,9 @@ using std::string;
 
 class Solution {
 public:
+	int lengthOfLongestSubstring(string s) {
+
+	}
 	/* method1 leetcode无法通过机测无问题
 	int lengthOfLongestSubstring(string s) {
 		int len = 0, max = 0;
@@ -30,6 +33,7 @@ public:
 		return max;
 	}
 	*/
+	/*
 	int lengthOfLongestSubstring(string s) {
 		int len = 0, max = 0;
 		std::map<int,int> m;
@@ -48,6 +52,7 @@ public:
 			}
 		}
 	}
+	*/
 private:
 	int isrepeat(int key,int pos) {
 		return ((key & (1 << pos)) != 0);
