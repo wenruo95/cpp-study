@@ -1,17 +1,34 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include<bitset>
+#include<bitset> // 无用了
 #include<map>
 
 using std::string;
 
 class Solution {
 public:
+	// 最长无重复子串
 	int lengthOfLongestSubstring(string s) {
-
+		unsigned int max = 0, begin = 0;
+		std::map<char, unsigned int> mp;
+		for (int i = 0; i < s.size(); i++) {
+			if (i == 0 || mp.find(s[i]) == mp.end()) {
+				mp[s[i]] = i;
+				continue;
+			}
+			// 找到了
+			int len = i - begin;
+			std::cout << i << "\t" << begin << std::endl;
+			max = (len > max) ? len : max;
+			int repeat_pos = mp[s[i]];
+			mp.clear();
+			i = repeat_pos;
+			begin = repeat_pos + 1;
+		}
+		return max > mp.size() ? max : mp.size();
 	}
-	/* method1 leetcode无法通过机测无问题
+	/* method1 利用位操作来判断是否重复leetcode无法通过机测无问题
 	int lengthOfLongestSubstring(string s) {
 		int len = 0, max = 0;
 		unsigned int key = 0;
@@ -66,7 +83,7 @@ int main(void) {
 	// tmmzuxt 5
 	std::vector<string> vs = {"abcabcbb","bbbbb","pwwkew","tmmzuxt"};
 	Solution solution;
-	for (int i = 0; i < vs.size() - 3; i++) {
+	for (int i = 0; i < vs.size(); i++) {
 		std::cout << vs[i] << " length:" << solution.lengthOfLongestSubstring(vs[i]) << std::endl;
 	}
 	return 0;
