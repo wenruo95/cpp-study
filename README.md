@@ -34,6 +34,8 @@
 * 9.[Palindrome Number](leetcode/palindrome-number.cc)
 * 10.[Regular Expression Matching](leetcode/regular-expression.cc)
 * 11.[Container With Most Water](leetcode/container-most-water.cc)
+* 12.[Integer to Roman](leetcode/roman.cc)
+* 13.[Roman to Integer](leetcode/roman.cc)
 
 # 4.[图](graph)
 
