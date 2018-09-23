@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include<map>
 
 class Solution {
 public:
@@ -24,6 +25,38 @@ public:
 			//std::cout << *it << "\t" << num2str(*it) << std::endl;;
 		}
 		return str;
+	}
+	int romanToInt(std::string s) {
+		int nums[3][3] = {
+			{1, 5, 10},
+			{10, 50, 100},
+			{100, 500, 1000}
+		};
+		char chs[3][3] = {
+			{'I', 'V', 'X'},
+			{'X', 'L', 'C'},
+			{'C', 'D', 'M'}
+		};
+		std::map<char, int> mp;
+		int row_size = sizeof(nums) / sizeof(nums[0]);
+		int column_size = sizeof(nums[0]) / sizeof(nums[0][0]);
+		for (int i = 0; i < column_size; i++) {
+			for (int j = 0; j < column_size; j++) {
+				mp[chs[i][j]] = nums[i][j];
+			}
+		}
+		int sum = 0;
+		for (int i = 0; i < s.size(); i++) {
+			if (i + 1 < s.size() && mp[s[i]] < mp[s[i + 1]]) {
+				//std::cout << s[i] << "\t" << s[i+1] << std::endl;
+				//std::cout << mp[s[i]] << "\t" << mp[s[i+1]] << std::endl;
+				sum += mp[s[i+1]] - mp[s[i]];
+				i++;
+			} else {
+				sum += mp[s[i]];
+			}
+		}
+		return sum;
 	}
 	std::string num2str(int num) {
 		int nums[3][3] = {
@@ -80,6 +113,9 @@ int main(void) {
 	unsigned int size = sizeof(vec) / sizeof(vec[0]);
 	for (int i = 0; i < size; i++) {
 		std::cout << vec[i] << std::endl;
-		std::cout << solution.intToRoman(vec[i]) << std::endl;
+		std::string str = solution.intToRoman(vec[i]);
+		std::cout << str << std::endl;
+		std::cout << solution.romanToInt(str) << std::endl;
+		std::cout << std::endl;
 	}
 }
