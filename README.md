@@ -36,6 +36,10 @@
 * 11.[Container With Most Water](leetcode/container-most-water.cc)
 * 12.[Integer to Roman](leetcode/roman.cc)
 * 13.[Roman to Integer](leetcode/roman.cc)
+* 14.[Longest Common Prefix](leetcode/longest-common-prefix.cc)
+* 15.[3Sum](leetcode/three-sum.cc)
+* 16.[3Sum](leetcode/three-sum.cc)
+* 17.[Letter Combinations of a Phone Number](leetcode/)
 
 # 4.[图](graph)
 
