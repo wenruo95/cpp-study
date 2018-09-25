@@ -6,6 +6,11 @@
 class Solution {
 public:
 	std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
+		std::vector<std::vector<int>> results;
+		return results;
+	}
+	/* timeout
+	std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
 		std::map<int, int> mp;
 		std::map<int, std::vector<int>> sums;
 		for (int i = 0; i < nums.size(); i++) {
@@ -45,6 +50,7 @@ public:
 		}
 		return results;
 	}
+	*/
 };
 
 int main(void) {
