@@ -23,9 +23,13 @@ public:
 		std::map<int, std::set<int>> repeat_mp;
 		for (int i = 0; i < nums.size(); i++) {
 			for (int j = 0; j < nums.size(); j++) {
-				if (i == j || repeat_mp[nums[i]].find(nums[j]) != repeat_mp[nums[i]].end()) continue;
+				if (i == j || repeat_mp[nums[i]].find(nums[j]) != repeat_mp[nums[i]].end()) {
+					continue;
+				}
+				//
 				repeat_mp[nums[i]].insert(nums[j]);
 				repeat_mp[nums[j]].insert(nums[i]);
+				//
 				int target = -(nums[i] + nums[j]);
 				if (mp.find(target) != mp.end() && mp[target] != i && mp[target] != j) {
 					std::vector<int> result;
@@ -33,6 +37,8 @@ public:
 					result.push_back(nums[j]);
 					result.push_back(nums[mp[target]]);
 					results.push_back(result);
+					//
+					repeat_mp[nums[i]].insert(nums[mp[target]]);
 				}
 			}
 			mp.erase(nums[i]);
