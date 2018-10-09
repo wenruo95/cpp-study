@@ -41,6 +41,11 @@
 * 16.[3Sum](leetcode/three-sum.cc)
 * 17.[Letter Combinations of a Phone Number](leetcode/)
 
+## 3.1.[其他算法](leetcode)
+
+* 1.[二分查找/循环有序查找](leetcode/halfsearch.cc)
+* 2.[四则运算字符串](leetcode/four-operation.cc)
+
 # 4.[图](graph)
 
 * [有向图的表示](graph)
