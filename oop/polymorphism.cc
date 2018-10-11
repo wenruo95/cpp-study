@@ -12,6 +12,7 @@ class Shape {
 			std::cout << "Parent class Area:";
 			return 0;
 		}
+		//virtual int area() = 0; // 纯虚函数
 };
 
 class Rectangle : public Shape {
