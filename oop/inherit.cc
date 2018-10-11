@@ -13,8 +13,6 @@ public:
 
 protected:
 	std::string _name;
-
-private:
 };
 
 Animal::Animal() {
@@ -92,7 +90,7 @@ int main(void) {
 	*/
 
 	Human human1;
-	animal.setname("t2");
+	human1.setname("t2");
 	human1.eat();
 	human1.sleep();
 	human1.showname();
