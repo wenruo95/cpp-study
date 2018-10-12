@@ -45,6 +45,8 @@
 
 * 1.[二分查找/循环有序查找](leetcode/halfsearch.cc)
 * 2.[四则运算字符串](leetcode/four-operation.cc)
+* 3.[原地翻转数组](leetcode/reverse-arr.cc)
+* 4.[判断链表是否有环](leetcode/link.cc)
 
 # 4.[图](graph)
 
