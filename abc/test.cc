@@ -14,5 +14,10 @@ int main()
 	} else {
 		std::cout << "Not found\n";
 	}
+	//
+	std::cout << "file:\t" << __FILE__ << std::endl;
+	std::cout << "line:\t" << __LINE__ << std::endl;
+	std::cout << "date:\t" << __DATE__ << std::endl;
+	std::cout << "time:\t" << __TIME__ << std::endl;
 	return 0;
 }
