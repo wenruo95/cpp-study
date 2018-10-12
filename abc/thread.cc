@@ -4,6 +4,7 @@
 #define NUM_THREADS 5
 
 /*
+ * http://www.runoob.com/w3cnote/cpp-multithread-demo.html
  * thread			执行指针标识符指针
  * attr				一个不透明的属性对象，可以用来设置指针属性.
  * start_routine	线程运行函数骑士地址，线程创建就会执行
