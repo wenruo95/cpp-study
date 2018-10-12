@@ -12,10 +12,16 @@
  * pthread_create(thread, attr, start_routine, arg)
  *
  * pthread_exit(status)
- *
+ * 
  * pthread_join(threadid, status)
+ * 作用:
+ * 1.防止主线程没有给其它线程执行的时间就返回而设计的
+ * 2.主线程创建子线程后，使用pthread_join阻塞自己，防止主线程先退出程序而程序结束
+ * 3.回收线程资源
+ * 4.阻塞父进程知道子进程结束，不会阻塞其它子进程
  *
  * pthread_detach(threadid)
+ *
  */
 
 struct thread_data {
@@ -44,7 +50,7 @@ int main(void) {
 		datas[i].message = str;
 		//int ret = pthread_create(&tids[i], NULL, say_hello, str);
 		int ret = pthread_create(&tids[i], NULL, say_hello2, (void*) &datas[i]);
-		if (ret != 0) {
+		if (ret) {
 			std::cout << "pthread_create error: error_code=" << ret << std::endl;
 		}
 	}
