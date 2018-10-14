@@ -125,3 +125,11 @@
 * [5](https://zhuanlan.zhihu.com/p/39425491)
 
 * [6](https://zhuanlan.zhihu.com/p/36884498) ==> **********面经大集合
+
+https://github.com/huihut/interview
+
+https://github.com/taizilongxu/interview_python
+
+https://github.com/Snailclimb/JavaGuide
+
+https://github.com/xingshaocheng/architect-awesome
