@@ -26,9 +26,11 @@ class TestS : public Test {
 			str = "tests0";
 			std::cout << "TestS" << std::endl;
 		}
+		/*
 		void f() {
 			std::cout << str << std::endl;
 		}
+		*/
 		void f1() {
 			std::cout << "tests1" << std::endl;
 		}
@@ -54,6 +56,13 @@ int main(void) {
 	pt->f();
 	pt->f1();
 	pt->f2();
+	std::cout << std::endl;
+
+	test2.f();
+	std::cout << "kk:\t" << test2.str << std::endl;
+	test2.f1();
+	test2.f2();
+	std::cout << std::endl;
 
 }
 
